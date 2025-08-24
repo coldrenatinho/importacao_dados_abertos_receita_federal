@@ -5,7 +5,7 @@ python -m venv venv
 .\venv\Scripts\activate
 
 # Instala os requerimentos
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 
 ########### GERAR ARQUIVO DE REQUERIMENTO ###################
 # pip freeze > requirements.txt

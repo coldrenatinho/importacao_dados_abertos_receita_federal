@@ -1,0 +1,9 @@
+/Dados_Brutos/
+**/venv
+test.txt
+*.log
+*csv
+*.zip
+*.rar
+*/.idea
+*.pdf
