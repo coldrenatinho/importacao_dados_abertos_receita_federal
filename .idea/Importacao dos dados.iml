@@ -4,9 +4,9 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
-      <excludeFolder url="file://$MODULE_DIR$/Ferramenta para Importacao/venv/Include" />
-      <excludeFolder url="file://$MODULE_DIR$/Ferramenta para Importacao/venv/Lib" />
-      <excludeFolder url="file://$MODULE_DIR$/Ferramenta para Importacao/venv/Scripts" />
+      <excludeFolder url="file://$MODULE_DIR$/Ferramenta_para_Importacao/venv/Include" />
+      <excludeFolder url="file://$MODULE_DIR$/Ferramenta_para_Importacao/venv/Lib" />
+      <excludeFolder url="file://$MODULE_DIR$/Ferramenta_para_Importacao/venv/Scripts" />
       <excludeFolder url="file://$MODULE_DIR$/venv/Include" />
       <excludeFolder url="file://$MODULE_DIR$/venv/Lib" />
       <excludeFolder url="file://$MODULE_DIR$/venv/Scripts" />
