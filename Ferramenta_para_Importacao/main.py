@@ -1,9 +1,11 @@
 from conexao_sql_server import ConexaoSQLServer
 from pandas_implementacao import Pandas
 from importador_sql import ImportadorSQL
+from listar_arquivos import ListarArquivos
+from enums import TipoArquivo
 
 def main():
-
+    # 1. Conexão com SQL Server
     criar_conexao = ConexaoSQLServer(
         server="localhost",
         database="Importacao_Dados_Receita_Federal",
@@ -11,19 +13,32 @@ def main():
         password="SenhaForte123!"
     )
     criar_conexao.test_connection()
-
     engine = criar_conexao.get_enige()
 
-    PATH = r"F:\Introducao a Eng de Dados\Importacao dados aberto Receita Federal\Importacao dos dados\Dados_Brutos\Cnaes\F.K03200$Z.D50809.CNAECSV"
-    meu_objeto = Pandas(PATH, "CNAE")
-    df = meu_objeto.criar_dataframe()
+    # 2. Listar todos os arquivos
+    path_dados = r"F:\Introducao a Eng de Dados\Importacao dados aberto Receita Federal\Importacao dos dados\Dados_Brutos"
+    lista_arquivos = ListarArquivos(path_dados)
+    resultados = lista_arquivos.listar_arquivos()
 
-    importador = ImportadorSQL(engine, df)
+    # 3. Iterar sobre os tipos de arquivos
+    for arquivo in resultados:
+        if not arquivo.paths:  # pula se não houver arquivos
+            continue
 
-    print(importador.ver_head())
+        print(f"\nImportando {arquivo.tipo.name} ({len(arquivo.paths)} arquivos)...")
 
-    importador.inserir_tabela("CNAE")
+        for path in arquivo.paths:
+            # Cria DataFrame
+            meu_objeto = Pandas(path, arquivo.tipo.name)
+            df = meu_objeto.criar_dataframe()
+
+            # Insere no SQL Server
+            importador = ImportadorSQL(engine, df)
+            importador.inserir_tabela(arquivo.tipo.name)
+
+            print(f"  - {path} importado ({len(df)} linhas)")
 
 if __name__ == '__main__':
     main()
+
 
