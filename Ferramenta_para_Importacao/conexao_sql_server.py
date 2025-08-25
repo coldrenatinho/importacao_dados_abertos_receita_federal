@@ -1,3 +1,5 @@
+# Cria uma conexao com o banco de dados SQL Server usando SQLAlchemy
+# e testa a conexao
 import traceback
 
 from sqlalchemy import create_engine, text

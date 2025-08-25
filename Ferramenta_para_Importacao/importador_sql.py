@@ -1,4 +1,4 @@
-import pandas as pd
+## Recebe a conexão e o DataFrame e insere no SQL Server
 
 class ImportadorSQL:
     def __init__(self, engine, dataframe):
