@@ -1,6 +1,6 @@
 import os
 from dataclasses import dataclass, field
-from enums import TipoArquivo
+from enum_arquivos import TipoArquivo
 
 @dataclass
 class ArquivoEncontrado:

@@ -1,8 +1,9 @@
 import pandas as pd
+from enum_arquivos import TipoArquivo
 
 ## Criar uma classe para importar os dados e criar uma lista para ler todos os arquivo em uma array de dados
 class Pandas:
-    def __init__(self, path, nome):
+    def __init__(self, path, TipoArquivo):
         self.path = path
         self.nome = nome
         self.df = None                                                        # Inicializa o atributo dentro da classe
