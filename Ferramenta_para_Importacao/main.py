@@ -1,4 +1,5 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import time
 
 from pandas.core.indexes.base import ensure_index
 
@@ -9,7 +10,7 @@ from insere_dataframe import ImportadorSQL
 from listar_arquivos import ListarArquivosSimples
 from dicionario import DICIONARIO
 
-MAX_TREADS = 5
+MAX_TREADS = 12
 ROOT_PATH = (r"F:\Introducao a Eng de Dados\Importacao dados aberto Receita Federal\Importacao dos dados\Dados_Brutos")
 def processar_arquivo(path, colunas_dataframe, engine, nome_tabela):
     """Função que lê o arquivo e insere no SQL"""
@@ -46,15 +47,19 @@ def main():
         # arquivos_filtrados = [arquivo for arquivo in lista_arquivos if arquivo.upper().endswith(extensao.upper())]
         arquivo = tipo['full_path']
         arquivos_filtrados = [arquivo]  # Lista de arquivos filtrados por extensão
+
         print(f"Processando {len(arquivos_filtrados)} arquivos com extensão {extensao} para a tabela {nome_tabela}")
 
+        start_time = time.time()
+        tipos = tipos_encontrados.listar_tipos() # Lista de tipos encontrados
         with ThreadPoolExecutor(max_workers=MAX_TREADS) as executor:
             futures = {executor.submit(processar_arquivo, path, colunas_dataframe, engine, nome_tabela): path for path in arquivos_filtrados}
             # futures = {executor.submit(processar_arquivo, arquivo, colunas_dataframe, engine, nome_tabela)}
             for future in as_completed(futures):
                 result = future.result()
                 print(result)
-
+        elapsed_time = time.time() - start_time
+        print(f"Tempo total para processar arquivos com extensão {extensao}: {elapsed_time:.2f} segundos")
 
 if __name__ == '__main__':
     main()

@@ -6,7 +6,6 @@ class ImportadorSQL:
         self.df = dataframe
         self.table_name = table_name
 
-
     def inserir_tabela(self, if_exists="append", dtype=None, chunksize=1000):
         """
         Insere o DataFrame no SQL Server.
@@ -26,9 +25,11 @@ class ImportadorSQL:
                 if_exists=if_exists,                                            #O que fazer se a tabela já existir
                 index=True,                                                     #Não inserir o índice do DataFrame como coluna
                 dtype=dtype,                                                    #Tipos das colunas
-                method="multi",
-                chunksize=chunksize                                             #Tamanho do lote (batch
+                # method="multi",
+                chunksize=chunksize                                             #Tamanho do lote (batch)
             )
-            print(f"Dados inseridos com sucesso na tabela '{tabela_name}'.")
+            print(f"Dados inseridos com sucesso na tabela '{self.table_name}'.")
+            print(f"Número de linhas inseridas: {len(self.df)}")
+            print(f"Colunas inseridas: {list(self.df.columns)}")
         except Exception as e:
             print(f"Erro ao inserir no SQL: {e}")
