@@ -1,8 +1,11 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+from Ferramenta_para_Importacao.inteface_arquivos import InterfaceArquivos
 from conexao_sql_server import ConexaoSQLServer
 from pandas_implementacao import Pandas
 from importador_sql import ImportadorSQL
-from listar_arquivos import ListarArquivos
+from listar_arquivos import ListarArquivosSimples
+from dicionario import DICIONARIO
 
 MAX_TREADS = 5
 def processar_arquivo(path, tipo, engine):
@@ -29,8 +32,10 @@ def main():
 
     # Listar arquivos
     path_dados = r"F:\Introducao a Eng de Dados\Importacao dados aberto Receita Federal\Importacao dos dados\Dados_Brutos"
-    lista_arquivos = ListarArquivos(path_dados)
+    lista_arquivos = ListarArquivosSimples(path_dados)
     resultados = lista_arquivos.listar_arquivos()
+    resultados = InterfaceArquivos(resultados, dicionario=DICIONARIO).listar_tipos()
+    print(resultados)
 
     # Preparar todos os jobs
     jobs = []
