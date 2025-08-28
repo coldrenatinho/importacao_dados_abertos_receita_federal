@@ -8,6 +8,7 @@ class ListarArquivosSimples:
     def _listar_arquivos(self):
         arquivos = []
         for dirpath, _, filenames in os.walk(self.root_path):
+            dirnames[:] = [d for d in dirnames if not d.startswith('.')]
             for filename in filenames:
                 full_path = os.path.join(dirpath, filename)
                 arquivos.append(full_path)
