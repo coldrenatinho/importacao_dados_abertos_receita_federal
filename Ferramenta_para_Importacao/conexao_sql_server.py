@@ -35,16 +35,6 @@ class ConexaoSQLServer:
             traceback.print_exc()
             return False
 
-# conexao = ConexaoSQLServer(
-#     server="localhost",
-#     database="Importacao_Dados_Receita_Federal",
-#     username="federal",
-#     password="SenhaForte123!"
-# )
-#
-# conexao.test_connection()
-
-
 
 
 

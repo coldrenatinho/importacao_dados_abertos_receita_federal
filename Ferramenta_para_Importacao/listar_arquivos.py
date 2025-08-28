@@ -21,5 +21,5 @@ class ListarArquivosSimples:
             print(path)
 
 # Exemplo de uso
-arquivo = ListarArquivosSimples(r"F:\Introducao a Eng de Dados\Importacao dados aberto Receita Federal\Importacao dos dados\Dados_Brutos")
-arquivo.imprimir_arquivos()
+# arquivo = ListarArquivosSimples(r"F:\Introducao a Eng de Dados\Importacao dados aberto Receita Federal\Importacao dos dados\Dados_Brutos")
+# arquivo.imprimir_arquivos()

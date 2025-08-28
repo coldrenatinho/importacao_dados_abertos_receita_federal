@@ -3,8 +3,8 @@ from dicionario import DICIONARIO
 # Inteface vai receber uma lista de arquivos e o dicionario
 # Vai retornar os tipos encontrados na lista de arquivos
 class InterfaceArquivos:
-    def __init__(self, arquivos, dicionario):
-        self.arquivos = arquivos
+    def __init__(self, lista_full_pach_arquivos, dicionario):
+        self.arquivos = lista_full_pach_arquivos
         self.dicionario = dicionario
 
     def listar_tipos(self):
@@ -15,17 +15,13 @@ class InterfaceArquivos:
                     tipos.append({
                         "extensao": extensao,
                         "nome": info["nome"],
-                        "campos": info["campos"]
+                        "colunas": info["colunas"]
                     })
         return tipos
+    def imprimir_tipos_arquivos(self):
+        interface = InterfaceArquivos(self.arquivos, self.dicionario)
+        tipos = interface.listar_tipos()
+        for tipo in tipos:
+            print(f"Extensão: {tipo['extensao']}, Nome: {tipo['nome']}, Colunas: {tipo['colunas']}")
 
-# Exemplo de uso:
-arquivos = ["empresa.EMPRECSV", "motivo.MOTICSV"]
-interface = InterfaceArquivos(arquivos, DICIONARIO)
-tipos_encontrados = interface.listar_tipos()
 
-for tipo in tipos_encontrados:
-    print(f"Extensão: {tipo['extensao']}")
-    print(f"Nome: {tipo['nome']}")
-    print(f"Campos: {tipo['campos']}")
-    print("---")

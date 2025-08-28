@@ -19,20 +19,14 @@ class ImportadorSQL:
 
         try:
             self.df.to_sql(
-                name=tabela,
-                con=self.engine,
-                if_exists=if_exists,
-                index=False,
-                dtype=dtype,
+                name=tabela,                                                    #Nome da tabela
+                con=self.engine,                                                #Conexão com o banco
+                if_exists=if_exists,                                            #O que fazer se a tabela já existir
+                index=True,                                                     #Não inserir o índice do DataFrame como coluna
+                dtype=dtype,                                                    #Tipos das colunas
                 method="multi",
-                chunksize=chunksize
+                chunksize=chunksize                                             #Tamanho do lote (batch
             )
             print(f"Dados inseridos com sucesso na tabela '{tabela}'")
         except Exception as e:
             print(f"Erro ao inserir no SQL: {e}")
-
-    def ver_head(self, n=5):
-        if self.df is not None:
-            return self.df.head(n)
-        else:
-            return "DataFrame não definido."
