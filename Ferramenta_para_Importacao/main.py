@@ -1,8 +1,6 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 
-from pandas.core.indexes.base import ensure_index
-
 from Ferramenta_para_Importacao.inteface_arquivos import InterfaceArquivos
 from conexao_sql_server import ConexaoSQLServer
 from criar_dataframe_pandas import Pandas

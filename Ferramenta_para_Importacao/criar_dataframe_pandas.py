@@ -16,7 +16,7 @@ class Pandas:
                 encoding='latin1',                                                #Encoder dos dados
                 dtype=str                                                         #Formatar dados como String
            )
-            return self.df
+            return self.df.dropna().drop_duplicates().fillna('N/A')
         except Exception as e:
                 print(f"Erro ao ler o arquivo: {e}")
 
