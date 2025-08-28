@@ -53,8 +53,10 @@ def main():
         start_time = time.time()
         tipos = tipos_encontrados.listar_tipos() # Lista de tipos encontrados
         with ThreadPoolExecutor(max_workers=MAX_TREADS) as executor:
-            futures = {executor.submit(processar_arquivo, path, colunas_dataframe, engine, nome_tabela): path for path in arquivos_filtrados}
-            # futures = {executor.submit(processar_arquivo, arquivo, colunas_dataframe, engine, nome_tabela)}
+            # futures = {executor.submit(processar_arquivo, path, colunas_dataframe, engine, nome_tabela): path for path in arquivos_filtrados}
+            futures = {executor.submit(processar_arquivo, path, colunas_dataframe, engine, nome_tabela): path for path
+                       in arquivos_filtrados}
+
             for future in as_completed(futures):
                 result = future.result()
                 print(result)

@@ -11,7 +11,7 @@ Este repositório foi desenvolvido como parte da disciplina **INTRODUÇÃO À EN
 
 Instalação das dependências:
 ```bash
-pip install pandas numpy pyodbc python-dateutil pytz tzdata
+pip install -r requirements.txt
 ```
 
 ## Como o Projeto foi Construído
