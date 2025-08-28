@@ -15,7 +15,8 @@ class InterfaceArquivos:
                     tipos.append({
                         "extensao": extensao,
                         "nome": info["nome"],
-                        "colunas": info["colunas"]
+                        "colunas": info["colunas"],
+                        "full_path": arquivo
                     })
         return tipos
     def imprimir_tipos_arquivos(self):
@@ -23,5 +24,6 @@ class InterfaceArquivos:
         tipos = interface.listar_tipos()
         for tipo in tipos:
             print(f"Extensão: {tipo['extensao']}, Nome: {tipo['nome']}, Colunas: {tipo['colunas']}")
+            print(tipos)
 
 
