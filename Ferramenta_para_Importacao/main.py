@@ -8,7 +8,7 @@ from insere_dataframe import ImportadorSQL
 from listar_arquivos import ListarArquivosSimples
 from dicionario import DICIONARIO
 
-MAX_TREADS = 12
+MAX_TREADS = 2
 ROOT_PATH = (r"F:\Introducao a Eng de Dados\Importacao dados aberto Receita Federal\Importacao dos dados\Dados_Brutos")
 def processar_arquivo(path, colunas_dataframe, engine, nome_tabela):
     """Função que lê o arquivo e insere no SQL"""
@@ -50,14 +50,21 @@ def main():
 
         start_time = time.time()
         tipos = tipos_encontrados.listar_tipos() # Lista de tipos encontrados
-        with ThreadPoolExecutor(max_workers=MAX_TREADS) as executor:
-            # futures = {executor.submit(processar_arquivo, path, colunas_dataframe, engine, nome_tabela): path for path in arquivos_filtrados}
-            futures = {executor.submit(processar_arquivo, path, colunas_dataframe, engine, nome_tabela): path for path
-                       in arquivos_filtrados}
+        for tipo in tipos:
+            extensao = tipo['extensao']
+            nome_tabela = tipo['nome']
+            colunas_dataframe = tipo['colunas']
+            arquivos_filtrados = [arquivo for arquivo in lista_arquivos if arquivo.upper().endswith(extensao.upper())]
+            print(f"Processando {len(arquivos_filtrados)} arquivos com extensão {extensao} para a tabela {nome_tabela}")
 
-            for future in as_completed(futures):
-                result = future.result()
-                print(result)
+            start_time = time.time()
+            with ThreadPoolExecutor(max_workers=MAX_TREADS) as executor:
+                futures = [
+                    executor.submit(processar_arquivo, path, colunas_dataframe, engine, nome_tabela)
+                    for path in arquivos_filtrados
+                ]
+                for future in as_completed(futures):
+                    print(future.result())
         elapsed_time = time.time() - start_time
         print(f"Tempo total para processar arquivos com extensão {extensao}: {elapsed_time:.2f} segundos")
 

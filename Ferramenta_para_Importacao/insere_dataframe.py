@@ -28,6 +28,8 @@ class ImportadorSQL:
                 # method="multi",
                 chunksize=chunksize                                             #Tamanho do lote (batch)
             )
+            for i, chunk in enumerate(range(0, len(self.df), chunksize)):
+                print(f"Inserindo lote {i + 1}: linhas {chunk} a {min(chunk + chunksize, len(self.df)) - 1}")
             print(f"Dados inseridos com sucesso na tabela '{self.table_name}'.")
             print(f"Número de linhas inseridas: {len(self.df)}")
             print(f"Colunas inseridas: {list(self.df.columns)}")
