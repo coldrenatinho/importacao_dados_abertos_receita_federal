@@ -23,7 +23,6 @@ class InterfaceArquivos:
         interface = InterfaceArquivos(self.arquivos, self.dicionario)
         tipos = interface.listar_tipos()
         for tipo in tipos:
-            print(f"Extensão: {tipo['extensao']}, Nome: {tipo['nome']}, Colunas: {tipo['colunas']}")
-            print(tipos)
+            print(f"Extensão: {tipo['extensao']}\nNome: {tipo['nome']}\nColunas: {tipo['colunas']}\nFull Path: {tipo['full_path']}\n{'-'*40}")
 
 

@@ -1,10 +1,12 @@
 /Dados_Brutos/**
 **/venv
+**/.venv
 test.txt
 *.log
-*csv
+*.csv
 *.zip
 *.rar
 **/.idea
 *.pdf
 **/__pycache__
+**/.run

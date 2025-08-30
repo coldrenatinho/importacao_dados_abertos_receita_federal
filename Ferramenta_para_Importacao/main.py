@@ -55,7 +55,7 @@ def main():
             nome_tabela = tipo['nome']
             colunas_dataframe = tipo['colunas']
             arquivos_filtrados = [arquivo for arquivo in lista_arquivos if arquivo.upper().endswith(extensao.upper())]
-            print(f"Processando {len(arquivos_filtrados)} arquivos com extensão {extensao} para a tabela {nome_tabela}")
+            print(f'\033[92mProcessando {len(arquivos_filtrados)} arquivos com extensão {extensao} para a tabela {nome_tabela}\033[0m')
 
             start_time = time.time()
             with ThreadPoolExecutor(max_workers=MAX_TREADS) as executor:
@@ -66,7 +66,7 @@ def main():
                 for future in as_completed(futures):
                     print(future.result())
         elapsed_time = time.time() - start_time
-        print(f"Tempo total para processar arquivos com extensão {extensao}: {elapsed_time:.2f} segundos")
+        print(f'\033[92mTempo total para processar arquivos com extensão {extensao}: {elapsed_time:.2f} segundos\033[0m')
 
 if __name__ == '__main__':
     main()
