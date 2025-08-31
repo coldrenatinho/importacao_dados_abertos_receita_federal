@@ -20,6 +20,6 @@ class ProcessaArquivo:
             importador = ImportadorSQL(engine=engine, dataframe=df, table_name=nome_tabela)                       #Instacia o interpletados
             importador.inserir_tabela()
             print(time.strftime('%H:%M:%S'))
-            return f"Arquivo {path} importado com sucesso.\n\n\n\n\n"
+            return f"Arquivo {path} importado com sucesso.\n"
         except Exception as e:
             return f"Erro ao importar {path}: {e}"

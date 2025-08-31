@@ -20,7 +20,6 @@ class ImportadorSQL:
             return
 
         try:
-
             for i, chunk in enumerate(range(0, len(self.df), chunksize)):
                 print(time.strftime('%H:%M:%S'))
                 print(f"Inserindo lote {i + 1}")
@@ -30,14 +29,13 @@ class ImportadorSQL:
                     if_exists=if_exists,  # O que fazer se a tabela já existir
                     index=False,  # Não inserir o índice do DataFrame como coluna
                     dtype=dtype,  # Tipos das colunas
-                    # method="multi",
+                    #method="multi",
                     chunksize=chunksize  # Tamanho do lote (batch)
                 )
                 print(f"Dados inseridos com sucesso na tabela '{self.table_name}'.")
-                print(f"Número de linhas inseridas: {len(self.df)}")
+                print(f"Número de linhas: {len(self.df)}")
                 print(f"Tamanho do DataFrame (memória): {self.df.memory_usage(deep=True).sum()} bytes")
-                print("Preview das primeiras linhas:")
-                print(self.df.head())
+                print(self.df.info())
                 print("-" * 40)
         except Exception as e:
             print(time.strftime('%H:%M:%S'))
