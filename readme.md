@@ -6,7 +6,7 @@ Este repositório foi desenvolvido como parte da disciplina **INTRODUÇÃO À EN
 
 - **pandas**: Manipulação e análise de dados tabulares.
 - **numpy**: Suporte a operações numéricas e vetoriais.
-- **pyodbc**: Conexão e integração com o banco de dados SQL Server.
+- **SQLAlchemy**: Conexão e integração com o banco de dados SQL Server.
 - **python-dateutil, pytz, tzdata**: Tratamento de datas e fusos horários.
 
 Instalação das dependências:
@@ -37,6 +37,9 @@ pip install -r requirements.txt
 - Fonte oficial dos dados: [dados.gov.br - Cadastro Nacional da Pessoa Jurídica - CNPJ](https://dados.gov.br/dados/conjuntos-dados/cadastro-nacional-da-pessoa-juridica---cnpj)
 - Layout e Dicionário de Dados: [CNPJ Metadados PDF](https://www.gov.br/receitafederal/dados/cnpj-metadados.pdf)
 - Scripts SQL deste projeto: [coldrenatinho/importacao\_dados\_abertos\_receita\_federal](https://github.com/coldrenatinho/importacao_dados_abertos_receita_federal)
+- Documentação do SQLAlchemy: [SQLAlchemy Documentation](https://docs.sqlalchemy.org/en/20/)
+- Documentação do pandas: [pandas Documentation](https://pandas.pydata.org/docs/)
+- Documentação do NumPy: [NumPy Documentation](https://numpy.org/doc/)
 
 ## Período dos Dados Utilizados
 

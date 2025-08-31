@@ -1,7 +1,6 @@
-from dicionario import DICIONARIO
-
 # Inteface vai receber uma lista de arquivos e o dicionario
 # Vai retornar os tipos encontrados na lista de arquivos
+# Assim como suas extensões, nomes e colunas
 class InterfaceArquivos:
     def __init__(self, lista_full_pach_arquivos, dicionario):
         self.arquivos = lista_full_pach_arquivos
