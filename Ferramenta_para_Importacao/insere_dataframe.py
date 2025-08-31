@@ -20,18 +20,19 @@ class ImportadorSQL:
             return
 
         try:
-            self.df.to_sql(
-                name=self.table_name,                                           #Nome da tabela
-                con=self.engine,                                                #Conexão com o banco
-                if_exists=if_exists,                                            #O que fazer se a tabela já existir
-                index=False,                                                    #Não inserir o índice do DataFrame como coluna
-                dtype=dtype,                                                    #Tipos das colunas
-                # method="multi",
-                chunksize=chunksize                                             #Tamanho do lote (batch)
-            )
+
             for i, chunk in enumerate(range(0, len(self.df), chunksize)):
                 print(time.strftime('%H:%M:%S'))
-                print(f"Inserindo lote {i + 1}: linhas {chunk} a {min(chunk + chunksize, len(self.df)) - 1}")
+                print(f"Inserindo lote {i + 1}")
+                self.df.to_sql(
+                    name=self.table_name,  # Nome da tabela
+                    con=self.engine,  # Conexão com o banco
+                    if_exists=if_exists,  # O que fazer se a tabela já existir
+                    index=False,  # Não inserir o índice do DataFrame como coluna
+                    dtype=dtype,  # Tipos das colunas
+                    # method="multi",
+                    chunksize=chunksize  # Tamanho do lote (batch)
+                )
                 print(f"Dados inseridos com sucesso na tabela '{self.table_name}'.")
                 print(f"Número de linhas inseridas: {len(self.df)}")
                 print(f"Tamanho do DataFrame (memória): {self.df.memory_usage(deep=True).sum()} bytes")

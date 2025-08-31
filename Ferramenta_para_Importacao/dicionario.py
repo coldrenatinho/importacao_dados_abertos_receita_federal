@@ -30,20 +30,20 @@ DICIONARIO = {
     ".CNAECSV": {
         "nome": "CNAES",
         "colunas": [
-            "Código",  # Código da atividade econômica
-            "Descrição"  # Nome da atividade
+            "Código",                                           #ok
+            "Descrição"                                         #ok
         ]
     },
     ".EMPRECSV": {
         "nome": "EMPRESAS",
         "colunas": [
-            "CNPJ Básico",
-            "Razão Social / Nome Empresarial",
-            "Natureza Jurídica",
-            "Qualificação do Responsável",
-            "Capital Social da Empresa",
-            "Porte da Empresa",
-            "Ente Federativo Responsável"
+            "CNPJ Básico",                                      #ok
+            "Razão Social / Nome Empresarial",                  #ok
+            "Natureza Jurídica",                                #ok
+            "Qualificação do Responsável",                      #ok
+            "Capital Social da Empresa",                        #ok
+            "Porte da Empresa",                                 #ok
+            "Ente Federativo Responsável"                       #ok
         ]
     },
     ".ESTABELE": {
@@ -84,64 +84,64 @@ DICIONARIO = {
     ".MOTICSV": {
         "nome": "MOTIVOS",
         "colunas": [
-            "Codigo",  # Código do motivo
-            "Descrição"  # Descrição do motivo
+            "Codigo",                                           #  Código do motivo
+            "Descrição"                                         # Descrição do motivo
         ]
     },
     ".MUNICCSV": {
         "nome": "MUNICIPIOS",
         "colunas": [
-            "Código",  # Código do município
-            "Descrição"  # Nome do município
+            "Código",                                           # Código do município
+            "Descrição"                                         # Nome do município
         ]
     },
     ".NATJUCSV": {
         "nome": "NATUREZAS",
         "colunas": [
-            "Código",  # Código da natureza jurídica
-            "Descrição"  # Nome da natureza jurídica
+            "Código",                                           # Código da natureza jurídica
+            "Descrição"                                         # Nome da natureza jurídica
         ]
     },
     ".PAISCSV": {
         "nome": "PAISES",
         "colunas": [
-            "Código",  # Código do país
-            "Descrição"  # Nome do país
+            "Código",                                           # Código do país
+            "Descrição"                                         # Nome do país
         ]
     },
     ".QUALSCSV": {
         "nome": "QUALIFICACOES",
         "colunas": [
-            "Código",  # Código da qualificação
-            "Descrição"  # Nome da qualificação
+            "Código",                                           # Código da qualificação
+            "Descrição"                                         # Nome da qualificação
         ]
     },
     ".D50809": {
         "nome": "SIMPLES",
         "colunas": [
-            "CNPJ Básico",
-            "Opção pelo Simples",
-            "Data de Opção pelo Simples",
-            "Data de Exclusão do Simples",
-            "Opção pelo MEI",
-            "Data de Opção pelo MEI",
-            "Data de Exclusão do MEI"
+            "CNPJ Básico",                                      #ok
+            "Opção pelo Simples",                               #ok
+            "Data de Opção pelo Simples",                       #ok
+            "Data de Exclusão do Simples",                      #ok
+            "Opção pelo MEI",                                   #ok
+            "Data de Opção pelo MEI",                           #ok
+            "Data de Exclusão do MEI"                           #ok
         ]
     },
     ".SOCIOCSV": {
         "nome": "SOCIOS",
         "colunas": [
-            "CNPJ Básico",
-            "Identificador de Sócio",
-            "Nome do Sócio",
-            "CNPJ/CPF do Sócio",
-            "Qualificação do Sócio",
-            "Data de Entrada na Sociedade",
-            "País",
-            "Representante Legal",
-            "Nome do Representante",
-            "Qualificação do Representante Legal",
-            "Faixa Etária"
+            "CNPJ Básico",                                      #ok
+            "Identificador de Sócio",                           #ok
+            "Nome do Sócio",                                    #ok
+            "CNPJ/CPF do Sócio",                                #ok
+            "Qualificação do Sócio",                            #ok
+            "Data de Entrada na Sociedade",                     #ok
+            "País",                                             #ok
+            "Representante Legal",                              #ok
+            "Nome do Representante",                            #ok
+            "Qualificação do Representante Legal",              #ok
+            "Faixa Etária"                                      #ok
         ]
     },
 }
