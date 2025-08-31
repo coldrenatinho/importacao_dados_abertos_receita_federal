@@ -1,4 +1,5 @@
 ## Recebe a conexão e o DataFrame e insere no SQL Server
+import time
 
 class ImportadorSQL:
     def __init__(self, engine, dataframe, table_name):
@@ -29,12 +30,15 @@ class ImportadorSQL:
                 chunksize=chunksize                                             #Tamanho do lote (batch)
             )
             for i, chunk in enumerate(range(0, len(self.df), chunksize)):
+                print(time.strftime('%H:%M:%S'))
                 print(f"Inserindo lote {i + 1}: linhas {chunk} a {min(chunk + chunksize, len(self.df)) - 1}")
-            print(f"Dados inseridos com sucesso na tabela '{self.table_name}'.")
-            print(f"Número de linhas inseridas: {len(self.df)}")
-            print(f"Tamanho do DataFrame (memória): {self.df.memory_usage(deep=True).sum()} bytes")
-            print("Preview das primeiras linhas:")
-            print(self.df.head())
-            print("-" * 40)
+                print(f"Dados inseridos com sucesso na tabela '{self.table_name}'.")
+                print(f"Número de linhas inseridas: {len(self.df)}")
+                print(f"Tamanho do DataFrame (memória): {self.df.memory_usage(deep=True).sum()} bytes")
+                print("Preview das primeiras linhas:")
+                print(self.df.head())
+                print("-" * 40)
         except Exception as e:
+            print(time.strftime('%H:%M:%S'))
             print(f"Erro ao inserir no SQL: {e}")
+            print("-" * 40)

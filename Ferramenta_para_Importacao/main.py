@@ -10,7 +10,12 @@ from processa_arquivo import ProcessaArquivo
 ######## PARÂMETROS ########
 MAX_TREADS = 2
 # ROOT_PATH = (r"F:\Introducao a Eng de Dados\Importacao dados aberto Receita Federal\Importacao dos dados\Dados_Brutos")
-ROOT_PATH = (r"F:\Introducao a Eng de Dados\Importacao dados aberto Receita Federal\Importacao dos dados\Dados_Brutos\Estabelecimentos\Estabelecimentos0")
+# ROOT_PATH = (r"F:\Introducao a Eng de Dados\Importacao dados aberto Receita Federal\Importacao dos dados\Dados_Brutos\Estabelecimentos\Estabelecimentos0")
+ROOT_PATH = (r"F:\Introducao a Eng de Dados\Importacao dados aberto Receita Federal\Importacao dos dados\Dados_Brutos\Estabelecimentos\TESTE")
+VERSAO = "4.0"
+AUTOR = "Renato A. Silva"
+GIT_HUB = (r"https://github.com/coldrenhatinho")
+LINKEDIN = (r"https://www.linkedin.com/in/renatoaraujo045/")
 ###########################
 def main():
     # Conexão SQL Server

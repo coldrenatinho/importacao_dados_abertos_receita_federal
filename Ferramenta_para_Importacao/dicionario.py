@@ -25,7 +25,7 @@ class TipoArquivo:
             "descricao": self.descricao
         }
 
-
+## TODO: VERIFICAR COMO CRIAR CONTRANTO NO SQL SERVER PARA OS CAMPOS
 DICIONARIO = {
     ".CNAECSV": {
         "nome": "CNAES",
@@ -49,33 +49,36 @@ DICIONARIO = {
     ".ESTABELE": {
         "nome": "ESTABELECIMENTOS",
         "colunas": [
-            "CNPJ Básico",
-            "CNPJ Ordem",
-            "CNPJ DV",
-            "Identificador Matriz/Filial",
-            "Nome Fantasia",
-            "Situação Cadastral",
-            "Data Situação Cadastral",
-            "Motivo Situação Cadastral",
-            "Nome da Cidade no Exterior",
-            "País",
-            "Data de Início da Atividade",
-            "CNAE Fiscal Principal",
-            "CNAE Fiscal Secundária",
-            "Tipo de Logradouro",
-            "Logradouro",
-            "Número",
-            "Complemento",
-            "Bairro",
-            "CEP",
-            "UF",
-            "Município",
-            "DDD 1 / Telefone 1",
-            "DDD 2 / Telefone 2",
-            "DDD do Fax / Fax",
-            "Correio Eletrônico",
-            "Situação Especial",
-            "Data da Situação Especial"
+            "CNPJ Básico",                                      #OK
+            "CNPJ Ordem",                                       #OK
+            "CNPJ DV",                                          #OK
+            "Identificador Matriz/Filial",                      #Verificar
+            "Nome Fantasia",                                    #ok
+            "Situação Cadastral",                               #ok
+            "Data Situação Cadastral",                          #ok
+            "Motivo Situação Cadastral",                        #ok
+            "Nome da Cidade no Exterior",                       #ok
+            "País",                                             #ok
+            "Data de Início da Atividade",                      #ok
+            "CNAE Fiscal Principal",                            #ok
+            "CNAE Fiscal Secundária",                           #ok
+            "Tipo de Logradouro",                               #ok
+            "Logradouro",                                       #ok
+            "Número",                                           #ok
+            "Complemento",                                      #ok
+            "Bairro",                                           #ok
+            "CEP",                                              #ok
+            "UF",                                               #ok
+            "Município",                                        #ok
+            "DDD 1",                                            #ok
+            "Telefone 1",                                       #ok
+            "DDD 2",                                            #ok
+            "Telefone 2",                                       #ok
+            "DDD do Fax",                                       #ok
+            "Fax",                                              #ok
+            "Correio Eletrônico",                               #ok
+            "Situação Especial",                                #ok
+            "Data da Situação Especial"                         #ok
         ]
     },
     ".MOTICSV": {
