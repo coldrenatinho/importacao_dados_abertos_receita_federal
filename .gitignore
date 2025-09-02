@@ -10,3 +10,4 @@ test.txt
 *.pdf
 **/__pycache__
 **/.run
+*.tcr

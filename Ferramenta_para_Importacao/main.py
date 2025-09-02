@@ -5,10 +5,11 @@ from conexao_sql_server import ConexaoSQLServer
 from listar_arquivos import ListarArquivosSimples
 from dicionario import DICIONARIO
 from processa_arquivo import ProcessaArquivo
+import gc
 
 
 ######## PARÂMETROS ########
-MAX_TREADS = 1
+MAX_TREADS = 1  # Número máximo de threads para processamento paralelo
 ROOT_PATH = (r"F:\Introducao a Eng de Dados\Importacao dados aberto Receita Federal\Importacao dos dados\Dados_Brutos")
 # ROOT_PATH = (r"F:\Introducao a Eng de Dados\Importacao dados aberto Receita Federal\Importacao dos dados\Dados_Brutos\Estabelecimentos\Estabelecimentos0")
 # ROOT_PATH = (r"F:\Introducao a Eng de Dados\Importacao dados aberto Receita Federal\Importacao dos dados\Dados_Brutos\Estabelecimentos\TESTE")
@@ -18,6 +19,13 @@ GIT_HUB = (r"https://github.com/coldrenhatinho")
 LINKEDIN = (r"https://www.linkedin.com/in/renatoaraujo045/")
 ###########################
 def main():
+
+
+    print(f"\033[92mFerramenta para Importação de Dados - Versão {VERSAO}\033[0m")
+    print(f"\033[92mAutor: {AUTOR}\033[0m")
+    print(f"\033[92mGitHub: {GIT_HUB}\033[0m")
+    print(f"\033[92mLinkedIn: {LINKEDIN}\033[0m")
+    print("-" * 40)
     # Conexão SQL Server
     criar_conexao = ConexaoSQLServer(
         server="localhost",
@@ -51,6 +59,7 @@ def main():
                 for path in arquivos_filtrados
             ]
             for future in as_completed(futures):
+                gc.collect()
                 print(future.result())
         elapsed_time = time.time() - start_time
         print(f'\033[92mTempo total para processar arquivos com extensão {extensao}: {elapsed_time:.2f} segundos\033[0m\n')

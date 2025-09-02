@@ -1,0 +1,10 @@
+CREATE VIEW vw_socios_empresa AS
+SELECT
+    s.[CNPJ Básico],
+    e.[Razão Social / Nome Empresarial],
+    s.[Nome do Sócio],
+    s.[CNPJ/CPF do Sócio],
+    s.[Qualificação do Sócio]
+FROM
+    SOCIOS s
+    LEFT JOIN EMPRESAS e ON s.[CNPJ Básico] = e.[CNPJ Básico];

@@ -7,7 +7,7 @@ class ImportadorSQL:
         self.df = dataframe
         self.table_name = table_name
 
-    def inserir_tabela(self, if_exists="append", dtype=None, chunksize=1000):
+    def inserir_tabela(self, if_exists="append", dtype=None, chunksize=30000):
         """
         Insere o DataFrame no SQL Server.
         :param tabela: Nome da tabela de destino
@@ -20,23 +20,22 @@ class ImportadorSQL:
             return
 
         try:
-            for i, chunk in enumerate(range(0, len(self.df), chunksize)):
+            for i in range(0, len(self.df), chunksize):
+                chunk_df = self.df.iloc[i:i + chunksize]
                 print(time.strftime('%H:%M:%S'))
-                print(f"Inserindo lote {i + 1}")
-                self.df.to_sql(
-                    name=self.table_name,  # Nome da tabela
-                    con=self.engine,  # Conexão com o banco
-                    if_exists=if_exists,  # O que fazer se a tabela já existir
-                    index=False,  # Não inserir o índice do DataFrame como coluna
-                    dtype=dtype,  # Tipos das colunas
-                    #method="multi",
-                    chunksize=chunksize  # Tamanho do lote (batch)
+                print(f"Inserindo lote {(i // chunksize) + 1}")
+                chunk_df.to_sql(
+                    name=self.table_name,
+                    con=self.engine,
+                    if_exists=if_exists if i == 0 else "append",  # só cria/recria no primeiro lote
+                    index=False,
+                    dtype=dtype,
+                    #method="multi",  # mais eficiente
                 )
-                print(f"Dados inseridos com sucesso na tabela '{self.table_name}'.")
-                print(f"Número de linhas: {len(self.df)}")
-                print(f"Tamanho do DataFrame (memória): {self.df.memory_usage(deep=True).sum()} bytes")
-                print(self.df.info())
+
+                print(f"Lote {(i // chunksize) + 1} inserido com sucesso! ({len(chunk_df)} linhas)")
                 print("-" * 40)
+
         except Exception as e:
             print(time.strftime('%H:%M:%S'))
             print(f"Erro ao inserir no SQL: {e}")

@@ -1,0 +1,25 @@
+CREATE VIEW vw_empresas_simples_mei AS
+SELECT
+    s.[CNPJ Básico],
+    e.[Razão Social / Nome Empresarial],
+    s.[Opção pelo Simples],
+    s.[Data de Opção pelo Simples],
+    s.[Data de Exclusão do Simples],
+    s.[Opção pelo MEI],
+    s.[Data de Opção pelo MEI],
+    s.[Data de Exclusão do MEI]
+FROM
+    SIMPLES s
+    LEFT JOIN EMPRESAS e ON s.[CNPJ Básico] = e.[CNPJ Básico];CREATE VIEW vw_empresas_simples_mei AS
+    SELECT
+        s.[CNPJ Básico],
+        e.[Razão Social / Nome Empresarial],
+        s.[Opção pelo Simples],
+        s.[Data de Opção pelo Simples],
+        s.[Data de Exclusão do Simples],
+        s.[Opção pelo MEI],
+        s.[Data de Opção pelo MEI],
+        s.[Data de Exclusão do MEI]
+    FROM
+        SIMPLES s
+        LEFT JOIN EMPRESAS e ON s.[CNPJ Básico] = e.[CNPJ Básico];

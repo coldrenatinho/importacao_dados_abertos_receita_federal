@@ -20,7 +20,7 @@ class ConexaoSQLServer:
 
     def get_enige(self):
         connection_string = self.get_connection_string()
-        engine = create_engine(connection_string)
+        engine = create_engine(connection_string,  fast_executemany=True, pool_size=10, max_overflow=20, pool_timeout=30, pool_recycle=1800)
         return engine
 
     def test_connection(self):
